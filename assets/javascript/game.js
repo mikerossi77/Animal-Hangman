@@ -50,7 +50,7 @@ for (var i = 0; i < currentWord.length; i++) {
     lettersInWord.push(currentWord.charAt(i));
 }
 //Display initialized dashes
-var dashesOrLetters = document.createElement('p');
+var dashesOrLetters = document.createElement('h1');
 dashesOrLetters.textContent = currentWordInDashes;
 currentWordDashes.appendChild(dashesOrLetters);
 
