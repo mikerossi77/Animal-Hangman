@@ -17,7 +17,6 @@ var wordsLibrary = [
     "GAZELLE",
     "LION",
 ]
-
 var guessesAllowed = 7;
 var wordsIndex = 0;
 //get next word
@@ -31,7 +30,7 @@ var lossCount = 0
 // wins
 var winCountDisplay = document.createElement('h2');
 winCountDisplay.textContent = winCount;
-wins.appendChild(winCountDisplay);
+wins.appendChild(winCountDisplay); 
 //losses
 var lossCountDisplay = document.createElement('h2');
 lossCountDisplay.textContent = lossCount;
@@ -176,6 +175,7 @@ document.onkeyup = function (event) {
     }
 }
 
+
 function resetGame() {
     //reset use letters
     allUsedLetters = [];
@@ -208,4 +208,5 @@ function resetGame() {
     document.getElementById("hangmanPic").src = "./assets/images/hangman0.gif";
 
 }
+
 
