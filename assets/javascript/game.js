@@ -18,7 +18,7 @@ var wordsLibrary = [
     "LION",
 ]
 
-var guessesAllowed = prompt("How many guesses would you like to get?");
+var guessesAllowed = 7;
 var wordsIndex = 0;
 //get next word
 
@@ -146,10 +146,13 @@ document.onkeyup = function (event) {
         // Check to see if game is over
         // Did player win?
         if (letterCorrect == letterCount) {
-            alert("YOU WIN!")
+            //alert("YOU WIN!")
             winCount++;
             winCountDisplay.textContent = winCount;
             wins.appendChild(winCountDisplay);
+            if(currentWord == "ELEPHANT") {
+                document.getElementById("animals").src = "https://www.disktrend.com/wp-content/uploads/2016/11/baby-elephant-playing-600x450.jpg";
+            }
             resetGame();
         }
         //Did player lose
