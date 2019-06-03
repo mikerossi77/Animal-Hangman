@@ -23,7 +23,6 @@ for (var i = 0; i < currentWord.length; i++) {
     wordDashes[i] = "-"
     currentWordInDashes = currentWordInDashes + "-";
     lettersInWord.push(currentWord.charAt(i));
-    console.log(lettersInWord);
 }
 var dashesOrLetters = document.createElement('p');
 dashesOrLetters.textContent = currentWordInDashes;
@@ -101,6 +100,23 @@ document.onkeyup = function (event) {
                 //reset Current Word
                 wordsIndex++;
                 currentWord = wordsLibrary[wordsIndex];
+                //reset remainingGuesses
+                remainingGuessesCount = 7
+                remainingGuesses.textContent = remainingGuessesCount;
+                remainingGuessesDisplay.appendChild(remainingGuesses);
+                //reset Current Word dashes
+                wordDashes = [];
+                currentWordInDashes = "";
+                lettersInWord = [];
+                for (var i = 0; i < currentWord.length; i++) {
+                    //var dashesOrLetters = document.getElementById('currentWordDashes');
+                    wordDashes[i] = "-"
+                    currentWordInDashes = currentWordInDashes + "-";
+                    lettersInWord.push(currentWord.charAt(i));
+                }
+                dashesOrLetters.textContent = currentWordInDashes;
+                currentWordDashes.appendChild(dashesOrLetters);
+
 
             }
             else {
