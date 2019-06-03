@@ -39,9 +39,18 @@ p {
 #keyboardCol {
     margin: auto;
 }
-#keyboardSingleCol {
+#keyboard2  {
+    margin: auto;
+}
+#keyboard {
+    margin: auto;
+}
+.keyboardSingleCol {
     margin: auto;
 }
 .btn-lg{
     margin: 5px;
+}
+#guessedCol{
+    margin: auto;
 }

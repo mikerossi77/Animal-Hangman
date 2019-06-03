@@ -17,7 +17,7 @@
 <body>
     <div class="container">
         <div class="row align=center" id="title">
-            <div class="col-lg-12 ">
+            <div class="col-lg-12" id="gameTitleCol">
                 <H1 id="gameTitle" class="font-weight-bold font-italic">ANIMAL HANGMAN</H1>
             </div>
         </div>
@@ -48,75 +48,69 @@
                 <div class="row">
                     <div class="col-lg-9">
                         <h2>Guesses Remaining:</h2>
-
-
                     </div>
                     <div class="col-lg-3">
                         <h2 id="remainingGuessesDisplay"></h2>
                     </div>
-
                     <img src="./assets/images/hangman0.gif" alt="Hangman" id="hangmanPic" height="220px">
-
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="row" id="keyboard">
-            <div class="col-lg-4">
-        <h3>Letters Already Guessed:</h3>
-    </div>
-    <div class="col-lg-8">
-        <h3 id="usedLetters"></h3>
-    </div>
-    
-    </div>
-
-
-    <div class="row" id="keyboard">
-        <div id="keyboardCol" class="col-lg-12">
-            <div class="row" id="keyboardRow">
-                <div class="row" id="keyboardSingleCol">
-                    <button onclick="letterClick('A')" class="btn-lg">A</button>
-                    <button onclick="letterClick('B')" class="btn-lg">B</button>
-                    <button onclick="letterClick('C')" class="btn-lg">C</button>
-                    <button onclick="letterClick('D')" class="btn-lg">D</button>
-                    <button onclick="letterClick('E')" class="btn-lg">E</button>
-                    <button onclick="letterClick('F')" class="btn-lg">F</button>
-                    <button onclick="letterClick('G')" class="btn-lg">G</button>
-                    <button onclick="letterClick('H')" class="btn-lg">H</button>
-                    <button onclick="letterClick('I')" class="btn-lg">I</button>
-                    <button onclick="letterClick('J')" class="btn-lg">J</button>
-                    <button onclick="letterClick('K')" class="btn-lg">K</button>
-                    <button onclick="letterClick('L')" class="btn-lg">L</button>
-                    <button onclick="letterClick('M')" class="btn-lg">M</button>
-                </div>
-            </div>
-            <div class="row" id="keyboardRow">
-                <div class="row" id="keyboardSingleCol">
-                    <button onclick="letterClick('N')" class="btn-lg">N</button>
-                    <button onclick="letterClick('O')" class="btn-lg">O</button>
-                    <button onclick="letterClick('P')" class="btn-lg">P</button>
-                    <button onclick="letterClick('Q')" class="btn-lg">Q</button>
-                    <button onclick="letterClick('R')" class="btn-lg">R</button>
-                    <button onclick="letterClick('S')" class="btn-lg">S</button>
-                    <button onclick="letterClick('T')" class="btn-lg">T</button>
-                    <button onclick="letterClick('U')" class="btn-lg">U</button>
-                    <button onclick="letterClick('V')" class="btn-lg">V</button>
-                    <button onclick="letterClick('W')" class="btn-lg">W</button>
-                    <button onclick="letterClick('X')" class="btn-lg">X</button>
-                    <button onclick="letterClick('Y')" class="btn-lg">Y</button>
-                    <button onclick="letterClick('Z')" class="btn-lg">Z</button>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
 
-    <script src="./assets/javascript/game.js">
-    </script>
+
+        <div class="row" id="keyboard">
+            <div class="col-lg-12" id="guessedCol">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <h3>Letters Already Guessed:</h3>
+                    </div>
+                    <div class="col-lg-7">
+                        <h3 id="usedLetters"></h3>
+                    </div>
+                </div>
+                <div class="row" id="keyboard2">
+                    <div id="keyboardCol" class="col-lg-12">
+                        <div class="row" id="keyboardRow">
+                            <div class="row" id="keyboardSingleCol">
+                                <button onclick="letterClick('A')" class="btn-lg">A</button>
+                                <button onclick="letterClick('B')" class="btn-lg">B</button>
+                                <button onclick="letterClick('C')" class="btn-lg">C</button>
+                                <button onclick="letterClick('D')" class="btn-lg">D</button>
+                                <button onclick="letterClick('E')" class="btn-lg">E</button>
+                                <button onclick="letterClick('F')" class="btn-lg">F</button>
+                                <button onclick="letterClick('G')" class="btn-lg">G</button>
+                                <button onclick="letterClick('H')" class="btn-lg">H</button>
+                                <button onclick="letterClick('I')" class="btn-lg">I</button>
+                                <button onclick="letterClick('J')" class="btn-lg">J</button>
+                                <button onclick="letterClick('K')" class="btn-lg">K</button>
+                                <button onclick="letterClick('L')" class="btn-lg">L</button>
+                                <button onclick="letterClick('M')" class="btn-lg">M</button>
+                            </div>
+                        </div>
+                        <div class="row" id="keyboardRow">
+                            <div class="row" id="keyboardSingleCol">
+                                <button onclick="letterClick('N')" class="btn-lg">N</button>
+                                <button onclick="letterClick('O')" class="btn-lg">O</button>
+                                <button onclick="letterClick('P')" class="btn-lg">P</button>
+                                <button onclick="letterClick('Q')" class="btn-lg">Q</button>
+                                <button onclick="letterClick('R')" class="btn-lg">R</button>
+                                <button onclick="letterClick('S')" class="btn-lg">S</button>
+                                <button onclick="letterClick('T')" class="btn-lg">T</button>
+                                <button onclick="letterClick('U')" class="btn-lg">U</button>
+                                <button onclick="letterClick('V')" class="btn-lg">V</button>
+                                <button onclick="letterClick('W')" class="btn-lg">W</button>
+                                <button onclick="letterClick('X')" class="btn-lg">X</button>
+                                <button onclick="letterClick('Y')" class="btn-lg">Y</button>
+                                <button onclick="letterClick('Z')" class="btn-lg">Z</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="./assets/javascript/game.js">
+        </script>
 </body>
 
 </html>
