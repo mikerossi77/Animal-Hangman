@@ -1,17 +1,18 @@
 
 var wordsLibrary = [
-    "elephant",
-    "tiger",
-    "bear",
-    "zebra",
-    "shark",
-    "whale"
+    "ELEPHANT",
+    "TIGER",
+    "BEAR",
+    "ZEBRA",
+    "SHARK",
+    "WHALE"
 ]
 
 
 var wordsIndex = 0;
 //get next word
 currentWord = wordsLibrary[wordsIndex];
+
 
 //Create dashes to represent the current word
 var wordDashes = [];
@@ -28,58 +29,86 @@ var dashesOrLetters = document.createElement('p');
 dashesOrLetters.textContent = currentWordInDashes;
 currentWordDashes.appendChild(dashesOrLetters);
 
-//Game start.  Loop through 12 Guesses
-for (var i = 0; i < 12; i++) {
+//Default guesses remaining
+var remainingGuessesCount = 7;
+var remainingGuesses = document.createElement('h2');
+remainingGuesses.textContent = remainingGuessesCount;
+remainingGuessesDisplay.appendChild(remainingGuesses);
 
-    document.onkeyup = function (event) {
+//Default used Letters
+var lettersPicked = document.createElement('h2');
+var lettersShown = "";
+var allUsedLetters = [];
+var alreadyUsedLetter = false;
+var letterEntered = "";
 
+//Game start.  Loop through 7 Guesses
+
+console.log("round number" + i);
+document.onkeyup = function (event) {
+
+    letterEntered = event.key;
+    letterEntered = letterEntered.toUpperCase();
+    alreadyUsedLetter = false;
+    console.log(letterEntered);
+    allUsedLetters.forEach(function (theUsedLetter) {
+        if (theUsedLetter == letterEntered) {
+            alreadyUsedLetter = true;
+        }
+    });
+    if (alreadyUsedLetter == false) {
         //Add letterPicked to list of used letters
-        var letterPicked = document.createElement('h2');
-        letterPicked.textContent = event.key;
-        usedLetters.appendChild(letterPicked);
+        allUsedLetters.push(letterEntered);
+        lettersShown = lettersShown + letterEntered + " ";
+        lettersPicked.textContent = lettersShown;
+        usedLetters.appendChild(lettersPicked);
 
         //Check if letter is in the word
-        var currentPick = event.key;
+        var currentPick = letterEntered;
         //loop through letters looking for a match
+        var letterFound = false;
         lettersInWord.forEach(function (letter, i) {
             if (currentPick == letter) {
-                console.log("YOU GOT ONE!")
                 //Replace dash with letter
                 wordDashes[i] = currentPick;
-                // for (var i = 0; i < currentWordInDashes.length; i++){
+                letterFound = true;
+            }
+        });
+        //create a newWordDashes variable - loop through wordDashes to set it to the correct values
+        if (letterFound) {
+            var newWordDashes = "";
+            for (var j = 0; j < wordDashes.length; j++) {
+                newWordDashes = newWordDashes + wordDashes[j];
+            }
+            //Update page with new dashesOrLetters
+            dashesOrLetters.textContent = newWordDashes;
+            currentWordDashes.appendChild(dashesOrLetters);
+        }
 
-                // }
-                var newWordDashes = "";
-                for (var i = 0; i < wordDashes.length; i++) {
-                    //var dashesOrLetters = document.getElementById('currentWordDashes');
-                    newWordDashes = newWordDashes + wordDashes[i];
-                }
-                console.log(wordDashes);
-                //Update page with new dashesOrLetters
-                dashesOrLetters.textContent = newWordDashes;
-                currentWordDashes.appendChild(dashesOrLetters);
+        // Update remainingGuessesCount and display
+        remainingGuessesCount = remainingGuessesCount - 1;
+        remainingGuesses.textContent = remainingGuessesCount;
+        remainingGuessesDisplay.appendChild(remainingGuesses);
+        if (remainingGuessesCount == 0) {
+
+            if (confirm("YOU LOSE!  The word was: " + currentWord + "  Would you like to try again?")) {
+                //reset for next game
+                //reset use letters
+                allUsedLetters = [];
+                lettersShown = " ";
+                lettersPicked.textContent = lettersShown;
+                usedLetters.appendChild(lettersPicked);
+                //reset Current Word
+                wordsIndex++;
+                currentWord = wordsLibrary[wordsIndex];
 
             }
+            else {
+                alert("Don't go away mad, just go away!")
+            }
+        }
 
-        });
-        //   if (letterPicked = letter) {
-        // replace "-" with letter
-        //subtract one from lettersRemaining
-        //   }
-        //}
 
-        // if (userInput == "h") {
-        //     alert("Honk!")
-        // }
-        // else if (userInput == "d") {
-        //     car.driveToWork();
-        // }
-        // else if (userInput == "w") {
-        //     car.driveAroundWorld();
-        // }
-        // else if (userInput == "t") {
-        //     car.getTuneUp();
-        // }
-        // reWriteStats();
     }
 }
+
