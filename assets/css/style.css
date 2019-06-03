@@ -37,3 +37,6 @@ p {
     margin-top: 20px;
     color: aqua;
 }
+#currentWord {
+    padding: 5px;
+}

@@ -17,7 +17,7 @@
 <body>
     <div class="container">
         <div class="row" id="title">
-            <H1 id="gameTitle"  class="font-weight-bold font-italic" >ANIMAL HANGMAN</H1>
+            <H1 id="gameTitle" class="font-weight-bold font-italic">ANIMAL HANGMAN</H1>
             <div class="row" id="main">
                 <div class="col-lg-6">
                     <div class="row" id="animalsImage">
@@ -28,21 +28,22 @@
                     <div class="row" id="score">
                         <h3 id="wins">Wins: </h3>
                         <h3 id="losses">Losses: </h3>
-                        <button type="button" onclick="resetGame()" class="btn btn-success" id="playAgain">PLAY AGAIN!</button>
-                        
+                        <button type="button" onclick="resetGame()" class="btn btn-success" id="playAgain">PLAY
+                            AGAIN!</button>
                     </div>
-                    
                 </div>
                 <div class="col-lg-6">
-                    
+
                     <H3 id="pressAny">Press any letter to make your first pick!</H3>
-                    <h1>Current Word:</h1>
-                    <h2 id="currentWordDashes"></h2>
+                    <div id="currentWord">
+                        <h1>Current Word:</h1>
+                        <h2 id="currentWordDashes"></h2>
+                    </div>
                     <h2>Number of Guesses Remaining:</h2>
                     <h3 guessesRemaining></h3>
                     <h2 id="remainingGuessesDisplay"></h2>
-                    
-                    
+
+
                     <img src="./assets/images/hangman0.gif" alt="Hangman" id="hangmanPic" height="300px">
                     <h3>Letters Already Guessed:</h3>
 

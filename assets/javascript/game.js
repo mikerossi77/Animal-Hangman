@@ -86,7 +86,10 @@ document.onkeyup = function (event) {
     });
 
     //If letter has not already been used then process letter
-    if (alreadyUsedLetter == false) {
+    if (alreadyUsedLetter == true) {
+        alert("You already tried that letter");
+    }
+    else {
         //Add letterPicked to list of used letters
         allUsedLetters.push(letterEntered);
         lettersShown = lettersShown + letterEntered + " ";
@@ -155,10 +158,21 @@ document.onkeyup = function (event) {
             if (currentWord == "ELEPHANT") {
                 document.getElementById("animals").src = "https://www.disktrend.com/wp-content/uploads/2016/11/baby-elephant-playing-600x450.jpg";
             }
+            else if (currentWord == "BEAR") {
+                document.getElementById("animals").src = "https://gonzobanker.com/wp-content/uploads//7-Rules-When-Bankers-Face-the-Bear.jpg";
+            }
+            else if (currentWord == "TIGER") {
+                document.getElementById("animals").src = "https://media.graytvinc.com/images/810*456/10505533_xl.jpg";
+            }
+            else if (currentWord == "SHARK") {
+                document.getElementById("animals").src = "https://static.euronews.com/articles/stories/03/59/62/82/880x495_cmsv2_e9f51987-8a8b-5a65-9298-7bce4ad218af-3596282.jpg";
+            }
+            else if (currentWord == "ZEBRA") {
+                document.getElementById("animals").src = "https://timedotcom.files.wordpress.com/2014/07/zebra-new-red-meat.jpg";
+            }
             document.getElementById("hangmanPic").src = "./assets/images/youwin.jpg";
             playAgain.style.display = 'block';
 
-            //resetGame();
         }
         //Did player lose
         else if (remainingGuessesCount == 0) {
