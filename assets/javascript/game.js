@@ -1,4 +1,3 @@
-
 var wordsLibrary = [
     "ELEPHANT",
     "TIGER",
@@ -19,10 +18,12 @@ var wordsLibrary = [
     "LION",
 ]
 
-
+var guessesAllowed = prompt("How many guesses would you like to get?");
 var wordsIndex = 0;
 //get next word
-currentWord = wordsLibrary[wordsIndex];
+
+currentWord = wordsLibrary[wordsIndex]; 
+currentWord = currentWord.toUpperCase();
 
 //Initiate and display Win and loss counts
 var winCount = 0;
@@ -55,7 +56,7 @@ dashesOrLetters.textContent = currentWordInDashes;
 currentWordDashes.appendChild(dashesOrLetters);
 
 //Default and display guesses remaining
-var remainingGuessesCount = 7;
+var remainingGuessesCount = guessesAllowed;
 var remainingGuesses = document.createElement('h2');
 remainingGuesses.textContent = remainingGuessesCount;
 remainingGuessesDisplay.appendChild(remainingGuesses);
@@ -67,7 +68,7 @@ var allUsedLetters = [];
 var alreadyUsedLetter = false;
 var letterEntered = "";
 
-//Game start.  Loop through 7 Guesses
+//Game start.  Loop through Guesses Allowed ==============================================
 document.onkeyup = function (event) {
 
     //Initialize letter variables
@@ -160,7 +161,7 @@ function resetGame() {
     currentWord = wordsLibrary[wordsIndex];
     letterCount = currentWord.length;
     //reset remainingGuesses
-    remainingGuessesCount = 7
+    remainingGuessesCount = guessesAllowed;
     remainingGuesses.textContent = remainingGuessesCount;
     remainingGuessesDisplay.appendChild(remainingGuesses);
     //reset Current Word dashes
