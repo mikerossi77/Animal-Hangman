@@ -24,7 +24,7 @@ var wordsIndex = 0;
 currentWord = wordsLibrary[wordsIndex];
 currentWord = currentWord.toUpperCase();
 
-//Initiate and display Win and loss counts
+//Initiate and display Win and loss counting
 var winCount = 0;
 var lossCount = 0
 // wins
