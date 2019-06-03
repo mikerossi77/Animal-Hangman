@@ -16,62 +16,86 @@
 
 <body>
     <div class="container">
-        <div class="row" id="title">
-            <H1 id="gameTitle" class="font-weight-bold font-italic">ANIMAL HANGMAN</H1>
-            <div class="row" id="main">
-                <div class="col-lg-6">
-                    <div class="row" id="animalsImage">
-                        <img src="https://cdn.unifiedcommerce.com/content/product/large/55113-2.jpg" alt="Noahs Ark"
-                            id="animals" width="100%" height="400px">
-                    </div>
-
-                    <div class="row" id="score">
-                        <h3 id="wins">Wins: </h3>
-                        <h3 id="losses">Losses: </h3>
-                        <button type="button" onclick="resetGame()" class="btn btn-success" id="playAgain">PLAY
-                            AGAIN!</button>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-
-                    <p id="pressAny">Press any letter to make your first pick!</p>
-                    <div class="p-3 mb-2 bg-success text-white" id="currentWord">
-                        <h1>Current Word:</h1>
-                        <h1 id="currentWordDashes"></h1>
-                    </div>
-                    <h2>Number of Guesses Remaining:</h2>
-                    <h3 guessesRemaining></h3>
-                    <h2 id="remainingGuessesDisplay"></h2>
-
-
-                    <img src="./assets/images/hangman0.gif" alt="Hangman" id="hangmanPic" height="220px">
-                    <h3>Letters Already Guessed:</h3>
-
-                    <h3 id="usedLetters"></h3>
-                </div>
+        <div class="row align=center" id="title">
+            <div class="col-lg-12 ">
+                <H1 id="gameTitle" class="font-weight-bold font-italic">ANIMAL HANGMAN</H1>
             </div>
         </div>
-        <div class="row" id="keyboard">
-            <div id="keyboardCol" class="col-lg-12">
-                <div class="row" id="keyboardRow">
-                    <div class="row" id="keyboardSingleCol">
-                        <button onclick="letterClick('A')" class="btn-lg">A</button>
-                        <button onclick="letterClick('B')" class="btn-lg">B</button>
-                        <button onclick="letterClick('C')" class="btn-lg">C</button>
-                        <button onclick="letterClick('D')" class="btn-lg">D</button>
-                        <button onclick="letterClick('E')" class="btn-lg">E</button>
-                        <button onclick="letterClick('F')" class="btn-lg">F</button>
-                        <button onclick="letterClick('G')" class="btn-lg">G</button>
-                        <button onclick="letterClick('H')" class="btn-lg">H</button>
-                        <button onclick="letterClick('I')" class="btn-lg">I</button>
-                        <button onclick="letterClick('J')" class="btn-lg">J</button>
-                        <button onclick="letterClick('K')" class="btn-lg">K</button>
-                        <button onclick="letterClick('L')" class="btn-lg">L</button>
-                        <button onclick="letterClick('M')" class="btn-lg">M</button>
+        <div class="row" id="main">
+            <div class="col-lg-6">
+                <div class="row" id="animalsImage">
+                    <img src="https://cdn.unifiedcommerce.com/content/product/large/55113-2.jpg" alt="Noahs Ark"
+                        id="animals" height="250px">
+                </div>
+
+                <div class="row" id="score">
+                    <h3 id="wins">Wins: </h3>
+                    <h3 id="losses">Losses: </h3>
+                    <button type="button" onclick="resetGame()" class="btn btn-success" id="playAgain">PLAY
+                        AGAIN!</button>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p id="pressAny">Press any letter to make your first pick!</p>
+                        <div class="p-3 mb-2 bg-success text-white" id="currentWord">
+                            <h1>Current Word:</h1>
+                            <h1 id="currentWordDashes"></h1>
+                        </div>
                     </div>
                 </div>
-                <div class="row" id="keyboardRow">
-                        <div class="row" id="keyboardSingleCol">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <h2>Guesses Remaining:</h2>
+
+
+                    </div>
+                    <div class="col-lg-3">
+                        <h2 id="remainingGuessesDisplay"></h2>
+                    </div>
+
+                    <img src="./assets/images/hangman0.gif" alt="Hangman" id="hangmanPic" height="220px">
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row" id="keyboard">
+            <div class="col-lg-4">
+        <h3>Letters Already Guessed:</h3>
+    </div>
+    <div class="col-lg-8">
+        <h3 id="usedLetters"></h3>
+    </div>
+    
+    </div>
+
+
+    <div class="row" id="keyboard">
+        <div id="keyboardCol" class="col-lg-12">
+            <div class="row" id="keyboardRow">
+                <div class="row" id="keyboardSingleCol">
+                    <button onclick="letterClick('A')" class="btn-lg">A</button>
+                    <button onclick="letterClick('B')" class="btn-lg">B</button>
+                    <button onclick="letterClick('C')" class="btn-lg">C</button>
+                    <button onclick="letterClick('D')" class="btn-lg">D</button>
+                    <button onclick="letterClick('E')" class="btn-lg">E</button>
+                    <button onclick="letterClick('F')" class="btn-lg">F</button>
+                    <button onclick="letterClick('G')" class="btn-lg">G</button>
+                    <button onclick="letterClick('H')" class="btn-lg">H</button>
+                    <button onclick="letterClick('I')" class="btn-lg">I</button>
+                    <button onclick="letterClick('J')" class="btn-lg">J</button>
+                    <button onclick="letterClick('K')" class="btn-lg">K</button>
+                    <button onclick="letterClick('L')" class="btn-lg">L</button>
+                    <button onclick="letterClick('M')" class="btn-lg">M</button>
+                </div>
+            </div>
+            <div class="row" id="keyboardRow">
+                <div class="row" id="keyboardSingleCol">
                     <button onclick="letterClick('N')" class="btn-lg">N</button>
                     <button onclick="letterClick('O')" class="btn-lg">O</button>
                     <button onclick="letterClick('P')" class="btn-lg">P</button>
@@ -87,8 +111,8 @@
                     <button onclick="letterClick('Z')" class="btn-lg">Z</button>
                 </div>
             </div>
-            </div>
         </div>
+    </div>
     </div>
 
     <script src="./assets/javascript/game.js">
