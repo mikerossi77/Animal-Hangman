@@ -41,3 +41,9 @@ p {
 #keyboardCol {
     margin: auto;
 }
+#keyboardSingleCol {
+    margin: auto;
+}
+.btn-lg{
+    margin: 5px;
+}
