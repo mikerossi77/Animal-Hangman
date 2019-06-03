@@ -201,20 +201,52 @@ function processLetter(letterEntered) {
             wins.appendChild(winCountDisplay);
             if (currentWord == "ELEPHANT") {
                 document.getElementById("animals").src = "https://www.disktrend.com/wp-content/uploads/2016/11/baby-elephant-playing-600x450.jpg";
+                var x = document.getElementById("elephantAudio"); 
+                x.play();
+                document.getElementById("hangmanPic").src = "https://pics.me.me/nice-job-ly-really-proud-of-you-thanks-doge-41249049.png";
             }
             else if (currentWord == "BEAR") {
                 document.getElementById("animals").src = "https://gonzobanker.com/wp-content/uploads//7-Rules-When-Bankers-Face-the-Bear.jpg";
+                var x = document.getElementById("bearAudio"); 
+                x.play();
+                document.getElementById("hangmanPic").src = "https://www.joshuanhook.com/wp-content/uploads/2015/06/21979956.jpg";
             }
             else if (currentWord == "TIGER") {
                 document.getElementById("animals").src = "https://media.graytvinc.com/images/810*456/10505533_xl.jpg";
+                var x = document.getElementById("tigerAudio"); 
+                x.play();
+                document.getElementById("hangmanPic").src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlmPYbR1nOc3wml7aOjjMSQ-mh-uHBYgnC2MyRYs1Ldwb41_zH";
             }
             else if (currentWord == "SHARK") {
                 document.getElementById("animals").src = "https://static.euronews.com/articles/stories/03/59/62/82/880x495_cmsv2_e9f51987-8a8b-5a65-9298-7bce4ad218af-3596282.jpg";
+                var x = document.getElementById("sharkAudio"); 
+                x.play();
+                document.getElementById("hangmanPic").src = "https://memegenerator.net/img/instances/75228119.jpg";
             }
             else if (currentWord == "ZEBRA") {
                 document.getElementById("animals").src = "https://timedotcom.files.wordpress.com/2014/07/zebra-new-red-meat.jpg";
+                var x = document.getElementById("zebraAudio"); 
+                x.play();
+                document.getElementById("hangmanPic").src = "https://img.freepik.com/free-vector/congratulations-typography-handwritten-lettering-greeting-card-banner_7081-766.jpg?size=626&ext=jpg";
             }
-            document.getElementById("hangmanPic").src = "./assets/images/youwin.jpg";
+            else if (currentWord == "WHALE") {
+                document.getElementById("animals").src = "https://www.mercurynews.com/wp-content/uploads/2018/09/SJM-L-WHALEKAYAK-0930-02.jpg?w=620";
+                var x = document.getElementById("whaleAudio"); 
+                x.play();
+                document.getElementById("hangmanPic").src = "https://previews.123rf.com/images/aliasching/aliasching1604/aliasching160400600/56253022-way-to-go.jpg";
+            }
+            else if (currentWord == "CHEATAH") {
+                document.getElementById("animals").src = "https://www.sciencemag.org/sites/default/files/styles/inline__450w__no_aspect/public/cheetah_16x9.jpg?itok=bNuhAOvq";
+                var x = document.getElementById("cheetahAudio"); 
+                x.play();
+                document.getElementById("hangmanPic").src = "https://us.123rf.com/450wm/alextanya123rf/alextanya123rf1712/alextanya123rf171200011/91047109-stock-vector-you-are-the-best-text-typography-for-card-poster-invitation-or-t-shirt-lettering-design-vibrant-colo.jpg?ver=6";
+            }
+            else {
+                var x = document.getElementById("jungleAudio"); 
+                x.play();
+                document.getElementById("hangmanPic").src = "https://memegenerator.net/img/instances/76497037.jpg";
+            }
+            
             playAgain.style.display = 'block';
 
         }
