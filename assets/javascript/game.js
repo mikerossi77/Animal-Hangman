@@ -30,7 +30,7 @@ var lossCount = 0
 // wins
 var winCountDisplay = document.createElement('h2');
 winCountDisplay.textContent = winCount;
-wins.appendChild(winCountDisplay); 
+wins.appendChild(winCountDisplay);
 //losses
 var lossCountDisplay = document.createElement('h2');
 lossCountDisplay.textContent = lossCount;
@@ -66,6 +66,9 @@ var lettersShown = "";
 var allUsedLetters = [];
 var alreadyUsedLetter = false;
 var letterEntered = "";
+
+//Hide Play Again button
+playAgain.style.display = 'none';
 
 //Game start.  Loop through Guesses Allowed ==============================================
 document.onkeyup = function (event) {
@@ -121,25 +124,25 @@ document.onkeyup = function (event) {
             //Update Image
             //var myImage = document.getElementById("hangmanPic");
             //myImage.src = "./assets/images/hangman0.gif"
-            if(remainingGuessesCount==6) {
+            if (remainingGuessesCount == 6) {
                 document.getElementById("hangmanPic").src = "./assets/images/Hangman1.png";
             }
-            else if (remainingGuessesCount==5) {
+            else if (remainingGuessesCount == 5) {
                 document.getElementById("hangmanPic").src = "./assets/images/Hangman2.png";
             }
-            else if (remainingGuessesCount==4) {
+            else if (remainingGuessesCount == 4) {
                 document.getElementById("hangmanPic").src = "./assets/images/Hangman3.png";
             }
-            else if (remainingGuessesCount==3) {
+            else if (remainingGuessesCount == 3) {
                 document.getElementById("hangmanPic").src = "./assets/images/Hangman4.png";
             }
-            else if (remainingGuessesCount==2) {
+            else if (remainingGuessesCount == 2) {
                 document.getElementById("hangmanPic").src = "./assets/images/Hangman5.png";
             }
             else {
                 document.getElementById("hangmanPic").src = "./assets/images/Hangman6.png";
             }
-            
+
         }
 
         // Check to see if game is over
@@ -149,26 +152,25 @@ document.onkeyup = function (event) {
             winCount++;
             winCountDisplay.textContent = winCount;
             wins.appendChild(winCountDisplay);
-            if(currentWord == "ELEPHANT") {
+            if (currentWord == "ELEPHANT") {
                 document.getElementById("animals").src = "https://www.disktrend.com/wp-content/uploads/2016/11/baby-elephant-playing-600x450.jpg";
             }
-            resetGame();
+            document.getElementById("hangmanPic").src = "./assets/images/youwin.jpg";
+            playAgain.style.display = 'block';
+
+            //resetGame();
         }
         //Did player lose
         else if (remainingGuessesCount == 0) {
-
-            if (confirm("YOU LOSE!  The word was: " + currentWord + "  Would you like to try again?")) {
-
-                //Udate losses
-                lossCount++
-                lossCountDisplay.textContent = lossCount;
-                losses.appendChild(lossCountDisplay);
-                resetGame();
-            }
-            else {
-                alert("Don't go away mad, just go away!")
-                resetGame();
-            }
+            //Udate losses
+            lossCount++
+            lossCountDisplay.textContent = lossCount;
+            losses.appendChild(lossCountDisplay);
+            document.getElementById("hangmanPic").src = "https://cdn.dribbble.com/users/139200/screenshots/1050338/sorry.gif";
+            playAgain.style.display = 'block';
+            //Show the answer
+            dashesOrLetters.textContent = currentWord;
+            currentWordDashes.appendChild(dashesOrLetters);
         }
 
 
@@ -206,7 +208,9 @@ function resetGame() {
     letterCorrect = 0;
     //reset Image
     document.getElementById("hangmanPic").src = "./assets/images/hangman0.gif";
-
+    document.getElementById("animals").src = "https://cdn.unifiedcommerce.com/content/product/large/55113-2.jpg";
+    //Hide Play Again button
+    playAgain.style.display = 'none';
 }
 
 
