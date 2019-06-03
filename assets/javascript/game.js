@@ -76,6 +76,50 @@ document.onkeyup = function (event) {
     //Initialize letter variables
     letterEntered = event.key;
     letterEntered = letterEntered.toUpperCase();
+
+    processLetter(letterEntered);
+}
+
+
+function resetGame() {
+    //reset use letters
+    allUsedLetters = [];
+    lettersShown = " ";
+    lettersPicked.textContent = lettersShown;
+    usedLetters.appendChild(lettersPicked);
+    //reset Current Word
+    wordsIndex++;
+    currentWord = wordsLibrary[wordsIndex];
+    letterCount = currentWord.length;
+    //reset remainingGuesses
+    remainingGuessesCount = guessesAllowed;
+    remainingGuesses.textContent = remainingGuessesCount;
+    remainingGuessesDisplay.appendChild(remainingGuesses);
+    //reset Current Word dashes
+    wordDashes = [];
+    currentWordInDashes = "";
+    lettersInWord = [];
+    for (var i = 0; i < currentWord.length; i++) {
+        //var dashesOrLetters = document.getElementById('currentWordDashes');
+        wordDashes[i] = "-"
+        currentWordInDashes = currentWordInDashes + "-";
+        lettersInWord.push(currentWord.charAt(i));
+    }
+    dashesOrLetters.textContent = currentWordInDashes;
+    currentWordDashes.appendChild(dashesOrLetters);
+
+    letterCorrect = 0;
+    //reset Image
+    document.getElementById("hangmanPic").src = "./assets/images/hangman0.gif";
+    document.getElementById("animals").src = "https://cdn.unifiedcommerce.com/content/product/large/55113-2.jpg";
+    //Hide Play Again button
+    playAgain.style.display = 'none';
+}
+function letterClick(letter) {
+    processLetter(letter);
+}
+
+function processLetter(letterEntered) {
     alreadyUsedLetter = false;
 
     //Check if letter has already been used
@@ -190,41 +234,4 @@ document.onkeyup = function (event) {
 
     }
 }
-
-
-function resetGame() {
-    //reset use letters
-    allUsedLetters = [];
-    lettersShown = " ";
-    lettersPicked.textContent = lettersShown;
-    usedLetters.appendChild(lettersPicked);
-    //reset Current Word
-    wordsIndex++;
-    currentWord = wordsLibrary[wordsIndex];
-    letterCount = currentWord.length;
-    //reset remainingGuesses
-    remainingGuessesCount = guessesAllowed;
-    remainingGuesses.textContent = remainingGuessesCount;
-    remainingGuessesDisplay.appendChild(remainingGuesses);
-    //reset Current Word dashes
-    wordDashes = [];
-    currentWordInDashes = "";
-    lettersInWord = [];
-    for (var i = 0; i < currentWord.length; i++) {
-        //var dashesOrLetters = document.getElementById('currentWordDashes');
-        wordDashes[i] = "-"
-        currentWordInDashes = currentWordInDashes + "-";
-        lettersInWord.push(currentWord.charAt(i));
-    }
-    dashesOrLetters.textContent = currentWordInDashes;
-    currentWordDashes.appendChild(dashesOrLetters);
-
-    letterCorrect = 0;
-    //reset Image
-    document.getElementById("hangmanPic").src = "./assets/images/hangman0.gif";
-    document.getElementById("animals").src = "https://cdn.unifiedcommerce.com/content/product/large/55113-2.jpg";
-    //Hide Play Again button
-    playAgain.style.display = 'none';
-}
-
 

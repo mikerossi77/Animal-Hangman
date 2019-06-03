@@ -3,9 +3,7 @@ body {
     height: 100%;
     min-height: 700px;
 }
-h1 {
-    color: white; 
-}
+
 h2 {
     color: white;  
 }
@@ -39,4 +37,7 @@ p {
 }
 #currentWord {
     padding: 5px;
+}
+#keyboardCol {
+    margin: auto;
 }
