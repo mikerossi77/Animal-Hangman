@@ -22,7 +22,7 @@ var guessesAllowed = prompt("How many guesses would you like to get?");
 var wordsIndex = 0;
 //get next word
 
-currentWord = wordsLibrary[wordsIndex]; 
+currentWord = wordsLibrary[wordsIndex];
 currentWord = currentWord.toUpperCase();
 
 //Initiate and display Win and loss counts
@@ -112,12 +112,35 @@ document.onkeyup = function (event) {
             //Update page with new dashesOrLetters
             dashesOrLetters.textContent = newWordDashes;
             currentWordDashes.appendChild(dashesOrLetters);
+
         }
         else {
             // Update remainingGuessesCount and display
             remainingGuessesCount = remainingGuessesCount - 1;
             remainingGuesses.textContent = remainingGuessesCount;
             remainingGuessesDisplay.appendChild(remainingGuesses);
+            //Update Image
+            //var myImage = document.getElementById("hangmanPic");
+            //myImage.src = "./assets/images/hangman0.gif"
+            if(remainingGuessesCount==6) {
+                document.getElementById("hangmanPic").src = "./assets/images/Hangman1.png";
+            }
+            else if (remainingGuessesCount==5) {
+                document.getElementById("hangmanPic").src = "./assets/images/Hangman2.png";
+            }
+            else if (remainingGuessesCount==4) {
+                document.getElementById("hangmanPic").src = "./assets/images/Hangman3.png";
+            }
+            else if (remainingGuessesCount==3) {
+                document.getElementById("hangmanPic").src = "./assets/images/Hangman4.png";
+            }
+            else if (remainingGuessesCount==2) {
+                document.getElementById("hangmanPic").src = "./assets/images/Hangman5.png";
+            }
+            else {
+                document.getElementById("hangmanPic").src = "./assets/images/Hangman6.png";
+            }
+            
         }
 
         // Check to see if game is over
@@ -178,6 +201,8 @@ function resetGame() {
     currentWordDashes.appendChild(dashesOrLetters);
 
     letterCorrect = 0;
+    //reset Image
+    document.getElementById("hangmanPic").src = "./assets/images/hangman0.gif";
 
 }
 
