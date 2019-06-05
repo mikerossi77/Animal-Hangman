@@ -53,8 +53,8 @@ var wordsLibrary = [
     {
         name: "EAGLE",
         hint: "Soar like an...",
-        wellDoneURL: "https://media.graytvinc.com/images/810*456/10505533_xl.jpg",
-        picURL: "https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/10/04/08/gettyimages-530777824.gif"
+        wellDoneURL: "https://previews.123rf.com/images/aliasching/aliasching1604/aliasching160400600/56253022-way-to-go.jpg",
+        picURL: "https://www.fws.gov/southeast/images/hero/bald-eagle.jpg"
     },
     // "GIRRAFE",
     {
