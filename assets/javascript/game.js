@@ -1,5 +1,96 @@
+var randomLibrary = [
+    {
+        name: "AFTER",
+        hint: "Opposite of Before"
+    },
+    {
+        name: "ALARM",
+        hint: "Sound that wakes you up in the morning"
+    },
+    {
+        name: "ALWAYS",
+        hint: "Forever"
+    },
+    {
+        name: "CAMPING",
+        hint: "When you sleep in a tent"
+    },
+    {
+        name: "CHILDREN",
+        hint: "Not adults but..."
+    },
+    {
+        name: "CHESS",
+        hint: "Board game with Kings and Queens"
+    },
+    {
+        name: "BALLOON",
+        hint: "Full of air"
+    },
+    {
+        name: "BAND",
+        hint: "People who make music"
+    },
+    {
+        name: "DESK",
+        hint: "What you sit at in school"
+    },
+    {
+        name: "DREAM",
+        hint: "The world you go to when you sleep"
+    },
+    {
+        name: "DROP",
+        hint: "What happens when you let go of something"
+    },
+    {
+        name: "DEEP",
+        hint: "Far down in the water"
+    },
+    {
+        name: "BROTHER",
+        hint: "He's not your sister, he's your..."
+    },
+    {
+        name: "DOCTOR",
+        hint: "Who you go to when you are sick"
+    },
+    {
+        name: "Shoe",
+        hint: "What you wear on your feet"
+    },
+    {
+        name: "DRESS",
+        hint: "Something girls like to wear"
+    },
+    {
+        name: "BREAD",
+        hint: "What a sandwich is made with"
+    },
+    {
+        name: "BEDROOM",
+        hint: "The room you sleep in"
+    },
+    {
+        name: "TAYLOR",
+        hint: "Little girl with an Angel Face"
+    },
+    {
+        name: "DYLAN",
+        hint: "A boy who loves his iPad"
+    },
+    {
+        name: "KATELYN",
+        hint: "A girl who loves to draw"
+    },
+    {
+        name: "BRIGHT",
+        hint: "The sun is very..."
+    },
+]
 
-var wordsLibrary = [
+
+var animalLibrary = [
     {
         name: "ELEPHANT",
         hint: "Really big ears",
@@ -93,10 +184,28 @@ var wordsLibrary = [
     },
 ]
 
+var wordsLibrary = animalLibrary;
+var wordCategory = "Animals";
+document.getElementById("wordCategories").value = "Animals";
 
+
+function onSelectCategory() {
+
+    wordCategory = document.getElementById("wordCategories").value;
+    if (wordCategory === "Animals") {
+        document.getElementById("animals").src = "https://cdn.unifiedcommerce.com/content/product/large/55113-2.jpg";
+        wordsLibrary = animalLibrary;
+    }
+    else if (wordCategory === "Random") {
+        document.getElementById("animals").src = "https://timedotcom.files.wordpress.com/2018/12/lion-conservators-center.jpg?quality=85";
+        wordsLibrary = randomLibrary;
+    }
+    resetGame();
+}
 
 //randomize wordsLibrary
-shuffle(wordsLibrary);
+shuffle(animalLibrary);
+shuffle(randomLibrary);
 
 var guessesAllowed = 7;
 var wordsIndex = 0;
@@ -125,6 +234,7 @@ var currentWordInDashes = "";
 var lettersInWord = [];
 var letterCount = currentWord.length;
 var letterCorrect = 0
+var currentAnimalIndex = 0;
 
 //Initialize dashes to number of letters in currentWord
 for (var i = 0; i < currentWord.length; i++) {
@@ -168,6 +278,8 @@ function letterClick(letter) {
 }
 
 function resetGame() {
+    //Move to next word
+    wordsIndex++;
     //reset use letters
     allUsedLetters = [];
     lettersShown = " ";
@@ -175,7 +287,6 @@ function resetGame() {
     usedLetters.appendChild(lettersPicked);
     alreadyHinted = false;
     //reset Current Word
-    wordsIndex++;
     currentWord = wordsLibrary[wordsIndex].name;
     letterCount = currentWord.length;
     //reset remainingGuesses
@@ -201,12 +312,14 @@ function resetGame() {
     document.getElementById("animals").src = "https://cdn.unifiedcommerce.com/content/product/large/55113-2.jpg";
     //Hide Play Again button
     playAgain.style.display = 'none';
+
+
 }
 
 function processLetter(letterEntered) {
     alreadyUsedLetter = false;
     //Get array index
-    var currentAnimalIndex = searchForIndex(currentWord, wordsLibrary);
+    currentAnimalIndex = searchForIndex(currentWord, wordsLibrary);
 
     //Check if letter has already been used
     allUsedLetters.forEach(function (theUsedLetter) {
@@ -299,14 +412,29 @@ function processLetter(letterEntered) {
 
             //Generic code for winning.  set Animals picture, Play Audio, set hangman nice job picture
             //Play audio
-            var audioId = currentWord + "Audio";
-            var x = document.getElementById(audioId);
-            x.play();
+            if (wordCategory === "Animals") {
+                var audioId = currentWord + "Audio";
+                var x = document.getElementById(audioId);
+                x.play();
+            }
+            else {
+                var audioId = "WellDoneAudio";
+                var x = document.getElementById(audioId);
+                x.play();
+            }
+
 
             //set pictures
-            document.getElementById("hangmanPic").src = wordsLibrary[currentAnimalIndex].wellDoneURL;
-            document.getElementById("animals").src = wordsLibrary[currentAnimalIndex].picURL;
-            playAgain.style.display = 'block';
+            if (wordCategory === "Animals") {
+                document.getElementById("hangmanPic").src = wordsLibrary[currentAnimalIndex].wellDoneURL;
+                document.getElementById("animals").src = wordsLibrary[currentAnimalIndex].picURL;
+                playAgain.style.display = 'block';
+            }
+            else {
+                document.getElementById("hangmanPic").src = "https://pics.me.me/nice-job-ly-really-proud-of-you-thanks-doge-41249049.png";
+                playAgain.style.display = 'block';
+            }
+
         }
         //Did player lose
         else if (remainingGuessesCount == 0) {
@@ -354,5 +482,10 @@ function searchForIndex(nameKey, myArray) {
             return i;
         }
     }
+}
+function showHint() {
+    currentAnimalIndex = searchForIndex(currentWord, wordsLibrary);
+    alert(wordsLibrary[currentAnimalIndex].hint);
+    alreadyHinted = true;
 }
 
