@@ -123,7 +123,7 @@ var animalLibrary = [
     {
         name: "SHARK",
         hint: "Eats Fish",
-        wellDoneURL: "https://memegenerator.net/img/instances/75228119.jpg",
+        wellDoneURL: "https://previews.123rf.com/images/aliasching/aliasching1604/aliasching160400600/56253022-way-to-go.jpg",
         picURL: "https://static.euronews.com/articles/stories/03/59/62/82/880x495_cmsv2_e9f51987-8a8b-5a65-9298-7bce4ad218af-3596282.jpg"
     },
     // "WHALE",
@@ -151,7 +151,7 @@ var animalLibrary = [
     {
         name: "GIRRAFE",
         hint: "Long Neck",
-        wellDoneURL: "https://memegenerator.net/img/instances/75228119.jpg",
+        wellDoneURL: "https://previews.123rf.com/images/aliasching/aliasching1604/aliasching160400600/56253022-way-to-go.jpg",
         picURL: "https://www.thoughtco.com/thmb/a6keu_lfmRjyDH-72nIz9MW5EdA=/2121x1414/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-872346454-5c37b2dec9e77c000132a628.jpg"
     },
     // "RABBIT",
@@ -179,7 +179,7 @@ var animalLibrary = [
     {
         name: "LION",
         hint: "King of the Jungle",
-        wellDoneURL: "https://memegenerator.net/img/instances/75228119.jpg",
+        wellDoneURL: "https://previews.123rf.com/images/aliasching/aliasching1604/aliasching160400600/56253022-way-to-go.jpg",
         picURL: "https://timedotcom.files.wordpress.com/2018/12/lion-conservators-center.jpg?quality=85"
     },
 ]
@@ -208,7 +208,8 @@ function onSelectCategory() {
 //Intialize Timer
 var time = 0;
 intervalId = setInterval(count, 1000);
-
+var clockRunning = true;
+var gameTimeOut = setInterval(stopTimer, 10000);
 
 //randomize wordsLibrary
 shuffle(animalLibrary);
@@ -324,6 +325,14 @@ function resetGame() {
 }
 
 function processLetter(letterEntered) {
+    //reset timeout clock
+    clearInterval(gameTimeOut);                //put name of interval var here
+    gameTimeOut = setInterval(stopTimer, 30000);
+    if (!clockRunning) {
+        clockRunning = true;
+        intervalId = setInterval(count, 1000);
+    } 
+         
     alreadyUsedLetter = false;
     //Get array index
     currentAnimalIndex = searchForIndex(currentWord, wordsLibrary);
@@ -525,5 +534,10 @@ function count() {
     }
   
     return minutes + ":" + seconds;
+  }
+
+  function stopTimer () {
+    clearInterval(intervalId);
+    clockRunning = false
   }
 
